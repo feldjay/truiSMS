@@ -4,14 +4,14 @@ A Flask SMS app that replies to texts with one of Jenny Holzer's "Truisms" (1978
 
 ## Getting Started
 
-This project uses Python 3.6.2. To use the Twilio webhook during development, you will need to spin up an introspected tunnel to your localhost. I recommend using [ngork](https://ngrok.com/download). _You will need to create a [Twilio](https://www.twilio.com/try-twilio) developer account_ to receive testing credentials and configure a phone number to receive messaging requests from your tunnel's URL route.
+This project uses Python 3.6.2. To use the Twilio webhook during development, you will need to spin up an introspected tunnel to your localhost. I recommend using [ngork](https://ngrok.com/download). **You will need to create a [Twilio](https://www.twilio.com/try-twilio) developer account** to receive testing credentials and configure a phone number to receive messaging requests from your tunnel's URL route.
 
 ### Prerequisites
 
-All dependencies are versioned and maintained in a requirements file. To install project requirements, run:
+All dependencies are declared in ```install_requires``` and pulled from PyPi on installation. To install the project with all requirements, run:
 
 ```
-$ pip install -r requirements.txt
+$ python setup.py develop
 ```
 
 ### Installing
@@ -28,7 +28,7 @@ Configure your tunnel to forward to localhost:5000. To run the development serve
 $ python app.py
 ```
 
-When you text the number you associated with your local tunnel, you should see the following output:
+When you text the phone number you associated with your local tunnel, you should see the following output:
 
 ```
 * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
@@ -37,7 +37,7 @@ When you text the number you associated with your local tunnel, you should see t
 
 ## Running the tests
 
-The unit tests use the nose library. To run the tests:
+The unit tests use the nose library. Test behavior and avoid coupling to implementation details. To run the tests:
 
 ```
 $ nosetests
@@ -55,7 +55,11 @@ OK
 
 ## Deployment
 
-The live version of truiSMS is hosted on Heroku.
+The live version of truiSMS is hosted on Heroku. To push deploys directly from the command line, you will need to install the Heroku CLI.
+
+```
+brew install heroku/brew/heroku
+```
 
 ## Built With
 
