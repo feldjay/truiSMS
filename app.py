@@ -14,11 +14,9 @@ app = Flask(__name__)
 def sms():
     with open('truisms.csv', 'r') as f:
         reader = csv.reader(f)
-        truisms = []
-        for row in reader:
-            truisms.append(row)
+        truisms = list(reader)
 
-    truism = str(random.choice(truisms)).strip("[']")
+    truism = random.choice(truisms)[0]
 
     resp = MessagingResponse()
     resp.message(truism)
