@@ -1,9 +1,12 @@
 import csv
 import random
+from config import *
 from flask import Flask
-from twilio import twiml
+from twilio.twiml.messaging_response import Message, MessagingResponse
+from twilio.rest import Client
 
 
+client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 app = Flask(__name__)
 
 
@@ -11,11 +14,13 @@ app = Flask(__name__)
 def sms():
     with open('truisms.csv', 'r') as f:
         reader = csv.reader(f)
-        truisms = list(reader)
+        truisms = []
+        for row in reader:
+            truisms.append(row)
 
-    truism = str(random.choice(truisms))
+    truism = str(random.choice(truisms)).strip("[']")
 
-    resp = twiml.Response()
+    resp = MessagingResponse()
     resp.message(truism)
     return str(resp)
 
