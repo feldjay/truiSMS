@@ -89,7 +89,7 @@ wheels/
 #
 # # Environments
 truisms/
-# .env
+.env
 # .venv
 # env/
 # venv/
