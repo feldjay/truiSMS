@@ -1,6 +1,5 @@
 import csv
 import random
-from config import *
 from flask import Flask
 from twilio.twiml.messaging_response import Message, MessagingResponse
 from twilio.rest import Client
