@@ -1,13 +1,14 @@
 import csv
-import os
 import random
 from flask import Flask
 from twilio.twiml.messaging_response import MessagingResponse
 from twilio.rest import Client
 
 
-client = Client(os.environ.get('TWILIO_ACCOUNT_SID'), os.environ.get('TWILIO_AUTH_TOKEN'))
 app = Flask(__name__)
+app.config.from_envvar('APP_CONFIG')
+
+client = Client(app.config['TWILIO_ACCOUNT_SID'], app.config['TWILIO_AUTH_TOKEN'])
 
 
 @app.route('/sms', methods=['POST'])

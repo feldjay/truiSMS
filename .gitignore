@@ -1,5 +1,6 @@
-# Twilio Credentials
-config.py
+# Config Files
+settings_prod.cfg
+settings_local.cfg
 
 # Ngrok
 ngrok
