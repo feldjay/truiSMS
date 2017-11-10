@@ -4,7 +4,7 @@ A Flask SMS app that replies to texts with one of Jenny Holzer's "Truisms" (1978
 
 ## Getting Started
 
-This project uses Python 3.6.2. To use the Twilio webhook during development, you will need to spin up an introspected tunnel to your localhost. I recommend using [ngork](https://ngrok.com/download). **You will need to create a [Twilio](https://www.twilio.com/try-twilio) developer account** to receive testing credentials and configure a phone number to receive messaging requests from your tunnel's URL route.
+This project uses Python 3.6.2. To use the Twilio webhook during development, you will need to spin up an introspected tunnel to your localhost. I recommend using [ngrok](https://ngrok.com/download). **You will need to create a [Twilio](https://www.twilio.com/try-twilio) developer account** to configure a phone number to receive messaging requests from your tunnel's URL route.
 
 ### Prerequisites
 
@@ -19,7 +19,7 @@ $ python setup.py develop
 After installing requirements, activate the virtualenv.
 
 ```
-$ source truisms/bin/activate
+$ source venv/bin/activate
 ```
 
 Configure your tunnel to forward to localhost:5000. To run the development server, run: 
